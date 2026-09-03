@@ -1,171 +1,1102 @@
-<a href="#home">Home</a>
-<a href="#about">About Us</a>
-<a href="#services">Services</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-from pathlib import Path
-import zipfile, textwrap
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-root = Path("/mnt/data/heavenly-telecom")
-root.mkdir(exist_ok=True)
+    <title>PT Heavenly Telecom & Fiber</title>
 
-files = {
-"style.css": r'''/* PT HEAVENLY TELECOM & FIBER - Shared Styles */
-:root{
-  --bg:#050d19;--bg2:#09172a;--card:rgba(255,255,255,.055);
-  --line:rgba(255,255,255,.11);--text:#f5f9ff;--muted:#a8b7ca;
-  --blue:#0b5cff;--cyan:#00c8ff;--cyan2:#62e9ff;--max:1180px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Inter,Segoe UI,Arial,sans-serif;background:radial-gradient(circle at 15% 10%,rgba(0,200,255,.1),transparent 30%),radial-gradient(circle at 90% 80%,rgba(11,92,255,.1),transparent 30%),var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(to bottom,#000,transparent 90%);z-index:-1}
-a{color:inherit;text-decoration:none}
-img{max-width:100%}
-.container{width:min(var(--max),92%);margin:auto}
-header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(4,12,24,.72);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}
-.nav{height:76px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:18px;font-weight:900;letter-spacing:.4px}.logo span{color:var(--cyan)}
-.nav-links{display:flex;gap:28px;list-style:none}.nav-links a{font-size:14px;color:#c7d4e5;transition:.25s}.nav-links a:hover,.nav-links a.active{color:var(--cyan)}
-.menu{display:none;background:none;border:0;color:white;font-size:25px}
-.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:130px 0 80px;position:relative;overflow:hidden}
-.hero .orb{position:absolute;width:600px;height:600px;border:1px solid rgba(0,200,255,.13);border-radius:50%;animation:pulse 6s ease-in-out infinite}.hero .orb:before,.hero .orb:after{content:"";position:absolute;border:1px solid rgba(0,200,255,.09);border-radius:50%;inset:65px}.hero .orb:after{inset:130px}
-.eyebrow{display:inline-block;color:var(--cyan2);font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
-h1{font-size:clamp(44px,7vw,82px);line-height:1.03;letter-spacing:-3px;font-weight:900;max-width:950px;margin:auto}
-.gradient{background:linear-gradient(100deg,#fff,#bfefff,var(--cyan2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.gradient2{background:linear-gradient(90deg,var(--blue),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{max-width:760px;margin:25px auto 0;color:var(--muted);font-size:17px}
-.actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:32px}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 24px;border-radius:999px;font-weight:800;font-size:14px;border:1px solid var(--line);transition:.3s}
-.btn.primary{background:linear-gradient(135deg,var(--blue),var(--cyan));box-shadow:0 12px 35px rgba(0,160,255,.22)}
-.btn.secondary{background:rgba(255,255,255,.04)}.btn:hover{transform:translateY(-4px);box-shadow:0 15px 40px rgba(0,180,255,.2)}
-section{padding:100px 0}.section-head{text-align:center;max-width:720px;margin:0 auto 48px}.section-head h2{font-size:clamp(32px,5vw,52px);line-height:1.1;letter-spacing:-1.5px}.section-head p{color:var(--muted);margin-top:14px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.grid.two{grid-template-columns:repeat(2,1fr)}
-.card{background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:20px;padding:30px;transition:.4s;backdrop-filter:blur(12px);position:relative;overflow:hidden}
-.card:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-90px;bottom:-90px;background:var(--cyan);filter:blur(45px);opacity:.08}
-.card:hover{transform:translateY(-8px);border-color:rgba(0,200,255,.3);box-shadow:0 25px 70px rgba(0,0,0,.25)}
-.icon{width:52px;height:52px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(135deg,var(--blue),var(--cyan));font-size:22px;margin-bottom:20px}
-.card h3{font-size:20px;margin-bottom:10px}.card p,.card li{color:var(--muted);font-size:14px}
-.about-box{display:grid;grid-template-columns:1.1fr .9fr;gap:25px;align-items:stretch}.about-box .card p{font-size:16px;line-height:1.9}
-.list{list-style:none}.list li{padding:13px 0 13px 30px;border-bottom:1px solid rgba(255,255,255,.07);position:relative}.list li:before{content:"✓";position:absolute;left:0;color:var(--cyan);font-weight:900}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}.stat{text-align:center;padding:25px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.035)}.stat strong{display:block;font-size:30px;color:var(--cyan)}.stat span{color:var(--muted);font-size:13px}
-.page-hero{padding:155px 0 80px;text-align:center;background:radial-gradient(circle at center,rgba(0,200,255,.12),transparent 50%)}
-.page-hero h1{font-size:clamp(42px,6vw,68px)}.page-hero p{max-width:720px;margin:18px auto;color:var(--muted)}
-.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.tag{border:1px solid var(--line);padding:7px 12px;border-radius:999px;color:#c8d8e9;font-size:12px;background:rgba(255,255,255,.035)}
-.project{min-height:280px}.project .num{font-size:12px;color:var(--cyan);font-weight:900;letter-spacing:2px}.project h3{margin:16px 0 10px;font-size:22px}
-.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:25px}.contact-item{padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08)}.contact-item strong{display:block}.contact-item span{color:var(--muted);font-size:14px}
-form{display:grid;gap:15px}.row{display:grid;grid-template-columns:1fr 1fr;gap:15px}label{font-size:13px;color:#cbd7e6}input,textarea{width:100%;margin-top:7px;background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:12px;padding:13px 14px;color:#fff;outline:none;font:inherit}input:focus,textarea:focus{border-color:var(--cyan)}textarea{min-height:150px;resize:vertical}
-footer{border-top:1px solid var(--line);padding:40px 0;text-align:center;color:#778ba2;font-size:13px}
-.reveal{animation:up .8s ease both}.delay1{animation-delay:.12s}.delay2{animation-delay:.24s}.delay3{animation-delay:.36s}
-@keyframes up{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}@keyframes pulse{0%,100%{transform:scale(.86);opacity:.35}50%{transform:scale(1.05);opacity:.8}}
-@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.about-box,.contact-grid{grid-template-columns:1fr}.nav-links{gap:17px}}
-@media(max-width:650px){.menu{display:block}.nav-links{display:none;position:absolute;top:76px;left:0;width:100%;padding:20px;flex-direction:column;background:rgba(4,12,24,.97);border-bottom:1px solid var(--line)}.nav-links.open{display:flex}.grid,.grid.two,.stats,.row{grid-template-columns:1fr}.hero{min-height:90vh}.hero .orb{width:380px;height:380px}section{padding:75px 0}.card{padding:25px}h1{letter-spacing:-2px}.logo{font-size:16px}}
-''',
+    <meta
+        name="description"
+        content="PT Heavenly Telecom & Fiber - Telecommunication Provider, Fiber Optic Integrator & Network Solutions."
+    >
 
-"script.js": r'''const menu=document.querySelector(".menu");
-const links=document.querySelector(".nav-links");
-if(menu) menu.addEventListener("click",()=>links.classList.toggle("open"));
+    <link rel="stylesheet" href="style.css">
+</head>
 
-document.querySelectorAll("form").forEach(form=>{
-  form.addEventListener("submit",e=>{
-    e.preventDefault();
-    alert("Pesan berhasil disiapkan. Untuk versi produksi, hubungkan form ini ke email atau layanan form.");
-    form.reset();
-  });
-});
-''',
-
-"index.html": r'''<!DOCTYPE html>
-<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>PT Heavenly Telecom & Fiber | Home</title><meta name="description" content="PT Heavenly Telecom & Fiber - Telecommunication Provider, Fiber Optic Integrator & Network Solutions."><link rel="stylesheet" href="style.css"></head>
 <body>
-<header><div class="container nav"><a class="logo" href="index.html">HEAVENLY <span>TELECOM & FIBER</span></a><button class="menu">☰</button><ul class="nav-links"><li><a class="active" href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="contact.html">Contact</a></li></ul></div></header>
-<main>
-<section class="hero"><div class="orb"></div><div class="container reveal"><span class="eyebrow">Telecommunication • Fiber Optic • Network Solutions</span><h1><span class="gradient">Connecting Business</span><br><span class="gradient2">with Seamless Connectivity</span></h1><p>PT Heavenly Telecom & Fiber menghadirkan infrastruktur telekomunikasi, fiber optic, dan jaringan terpadu yang stabil, aman, dan siap mendukung pertumbuhan bisnis.</p><div class="actions"><a class="btn primary" href="services.html">Explore Services →</a><a class="btn secondary" href="contact.html">Get in Touch</a></div></div></section>
-<section><div class="container"><div class="section-head"><span class="eyebrow">Why Heavenly</span><h2>Infrastruktur digital yang <span class="gradient2">dapat diandalkan.</span></h2><p>Kami menggabungkan teknologi jaringan modern dengan pengerjaan profesional untuk kebutuhan enterprise.</p></div><div class="grid">
-<div class="card reveal"><div class="icon">⌁</div><h3>Fiber Optic</h3><p>Instalasi, splicing, pengujian OTDR, dan infrastruktur FTTH/FTTX.</p></div>
-<div class="card reveal delay1"><div class="icon">◈</div><h3>Network</h3><p>Perancangan LAN, WAN, WLAN, routing, switching, dan integrasi jaringan.</p></div>
-<div class="card reveal delay2"><div class="icon">▣</div><h3>Server</h3><p>Pengelolaan server, cloud, dedicated bandwidth, dan QoS.</p></div>
-<div class="card reveal delay3"><div class="icon">◉</div><h3>Security</h3><p>Firewall, monitoring, dan pengamanan infrastruktur jaringan.</p></div>
-</div></div></section>
-<section><div class="container about-box"><div class="card"><span class="eyebrow">About Us</span><h2>Menjadi tulang punggung <span class="gradient2">digital.</span></h2><p>PT Heavenly Telecom & Fiber adalah perusahaan penyedia layanan jaringan telekomunikasi, infrastruktur Fiber Optic, dan sistem jaringan terpadu yang beroperasi sejak 2022. Kami berfokus menghadirkan konektivitas berkecepatan tinggi yang stabil dan seamless untuk bisnis, pendidikan, hingga perkantoran.</p><a class="btn secondary" href="about.html">More About Us</a></div><div class="card"><span class="eyebrow">Our Vision</span><h3>Connectivity Without Boundaries</h3><p>Menjadi perusahaan telekomunikasi dan jaringan Fiber Optic terdepan yang menghadirkan konektivitas tanpa batas, aman, dan dapat diandalkan di seluruh Indonesia.</p><div class="stats"><div class="stat"><strong>99.9%</strong><span>Target Uptime</span></div><div class="stat"><strong>24/7</strong><span>Support Center</span></div><div class="stat"><strong>2022</strong><span>Established</span></div></div></div></div></section>
-<section><div class="container" style="text-align:center"><div class="section-head"><span class="eyebrow">Ready to Connect?</span><h2>Bangun jaringan yang <span class="gradient2">lebih kuat.</span></h2><p>Diskusikan kebutuhan infrastruktur jaringan perusahaan Anda bersama Heavenly Telecom & Fiber.</p><a class="btn primary" href="contact.html">Contact Our Team →</a></div></div></section>
-</main><footer>© 2022–2026 PT Heavenly Telecom & Fiber. All rights reserved.</footer><script src="script.js"></script></body></html>
-''',
 
-"about.html": r'''<!DOCTYPE html>
-<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>About Us | PT Heavenly Telecom & Fiber</title><link rel="stylesheet" href="style.css"></head>
-<body>
-<header><div class="container nav"><a class="logo" href="index.html">HEAVENLY <span>TELECOM & FIBER</span></a><button class="menu">☰</button><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a class="active" href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="contact.html">Contact</a></li></ul></div></header>
-<main><section class="page-hero"><div class="container reveal"><span class="eyebrow">About Our Company</span><h1>Built for <span class="gradient2">Reliable Connectivity.</span></h1><p>Mengenal PT Heavenly Telecom & Fiber, visi kami, dan prinsip yang menjadi dasar setiap solusi jaringan yang kami kerjakan.</p></div></section>
-<section><div class="container about-box"><div class="card"><span class="eyebrow">Who We Are</span><h2>Partner teknologi untuk <span class="gradient2">konektivitas modern.</span></h2><p>PT Heavenly Telecom & Fiber adalah perusahaan penyedia layanan jaringan telekomunikasi, infrastruktur Fiber Optic, dan sistem jaringan terpadu yang beroperasi sejak tahun 2022.</p><p style="margin-top:15px">Kami berfokus menghadirkan konektivitas internet dan transmisi data berkecepatan tinggi yang stabil, seamless, dan dapat diandalkan untuk sektor bisnis, pendidikan, hingga perkantoran.</p><p style="margin-top:15px">Dengan dukungan tenaga teknis dan infrastruktur serat optik modern, kami siap menjadi tulang punggung digital bagi pertumbuhan bisnis.</p></div><div class="card"><span class="eyebrow">Our Vision</span><h2>Connectivity <span class="gradient2">Without Limits.</span></h2><p>Menjadi perusahaan telekomunikasi dan jaringan Fiber Optic terdepan yang menghadirkan konektivitas tanpa batas, aman, dan dapat diandalkan di seluruh Indonesia.</p></div></div></section>
-<section><div class="container"><div class="section-head"><span class="eyebrow">Our Mission</span><h2>Standar kerja yang <span class="gradient2">kami pegang.</span></h2></div><div class="grid two">
-<div class="card"><div class="icon">01</div><h3>Pita Lebar Berkualitas</h3><p>Menyediakan jaringan internet dan komunikasi serat optik dengan bandwidth murni dan latency rendah.</p></div>
-<div class="card"><div class="icon">02</div><h3>Ketersediaan Tinggi</h3><p>Mendorong keandalan jaringan hingga 99.9% melalui sistem jalur cadangan dan redundancy.</p></div>
-<div class="card"><div class="icon">03</div><h3>Infrastruktur Terintegrasi</h3><p>Merancang dan mengimplementasikan topologi jaringan kabel optic dan wireless skala enterprise.</p></div>
-<div class="card"><div class="icon">04</div><h3>Layanan Profesional</h3><p>Memberikan dukungan teknis yang sigap dan responsif melalui support center 24/7.</p></div>
-</div></div></section>
-<section><div class="container"><div class="card"><span class="eyebrow">Core Values</span><div class="tags"><span class="tag">Reliability</span><span class="tag">Innovation</span><span class="tag">Security</span><span class="tag">Professionalism</span><span class="tag">Responsiveness</span><span class="tag">Integrity</span></div></div></div></section>
-</main><footer>© 2022–2026 PT Heavenly Telecom & Fiber. All rights reserved.</footer><script src="script.js"></script></body></html>
-''',
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+    <header>
+        <div class="container nav">
 
-"services.html": r'''<!DOCTYPE html>
-<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Services | PT Heavenly Telecom & Fiber</title><link rel="stylesheet" href="style.css"></head>
-<body>
-<header><div class="container nav"><a class="logo" href="index.html">HEAVENLY <span>TELECOM & FIBER</span></a><button class="menu">☰</button><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a class="active" href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="contact.html">Contact</a></li></ul></div></header>
-<main><section class="page-hero"><div class="container reveal"><span class="eyebrow">Our Services</span><h1>Solutions for <span class="gradient2">Connected Business.</span></h1><p>Dari kabel fiber optic hingga keamanan jaringan, kami menyediakan solusi yang dirancang untuk kebutuhan infrastruktur modern.</p></div></section>
-<section><div class="container"><div class="grid two">
-<div class="card"><div class="icon">⌁</div><h3>Fiber Optic Installation & Splicing</h3><p>Penarikan kabel Fiber Optic (FTTH/FTTX), penyambungan serat optik (splicing), serta pengujian kualitas sinyal menggunakan OTDR.</p><div class="tags"><span class="tag">FTTH</span><span class="tag">FTTX</span><span class="tag">Splicing</span><span class="tag">OTDR</span></div></div>
-<div class="card"><div class="icon">◈</div><h3>Network Planning & Integration</h3><p>Perancangan topologi LAN/WAN/WLAN, konfigurasi Core Router, Managed Switch, dan Access Point enterprise.</p><div class="tags"><span class="tag">LAN</span><span class="tag">WAN</span><span class="tag">WLAN</span><span class="tag">Routing</span></div></div>
-<div class="card"><div class="icon">▣</div><h3>Server & Dedicated Bandwidth</h3><p>Pengelolaan server lokal/cloud, penyediaan Dedicated Internet Access (DIA), dan manajemen bandwidth menggunakan QoS.</p><div class="tags"><span class="tag">Server</span><span class="tag">Cloud</span><span class="tag">DIA</span><span class="tag">QoS</span></div></div>
-<div class="card"><div class="icon">◉</div><h3>Network Security & Monitoring</h3><p>Konfigurasi firewall, proteksi jaringan dari ancaman siber, serta pemantauan trafik server dan jaringan secara real-time.</p><div class="tags"><span class="tag">Firewall</span><span class="tag">Security</span><span class="tag">Monitoring</span><span class="tag">24/7</span></div></div>
-</div></div></section>
-<section><div class="container"><div class="section-head"><span class="eyebrow">Technology & Certification</span><h2>Technology that <span class="gradient2">powers us.</span></h2><p>Teknologi dan platform yang digunakan dalam pengerjaan jaringan.</p></div><div class="grid">
-<div class="card"><h3>Hardware & Routing</h3><div class="tags"><span class="tag">MikroTik</span><span class="tag">MTCNA</span><span class="tag">MTCRE</span><span class="tag">Cisco</span><span class="tag">CCNA</span><span class="tag">Ubiquiti UniFi</span></div></div>
-<div class="card"><h3>Fiber Optic Equipment</h3><div class="tags"><span class="tag">Fusion Splicer</span><span class="tag">OTDR</span><span class="tag">OPM</span><span class="tag">VFL</span></div></div>
-<div class="card"><h3>Server & OS</h3><div class="tags"><span class="tag">Debian</span><span class="tag">Ubuntu</span><span class="tag">Windows Server</span><span class="tag">Proxmox</span></div></div>
-<div class="card"><h3>Enterprise Network</h3><div class="tags"><span class="tag">VLAN</span><span class="tag">VPN</span><span class="tag">IPsec</span><span class="tag">QoS</span></div></div>
-</div></div></section>
-</main><footer>© 2022–2026 PT Heavenly Telecom & Fiber. All rights reserved.</footer><script src="script.js"></script></body></html>
-''',
+            <a href="#home" class="logo">
+                HEAVENLY
+                <span>TELECOM & FIBER</span>
+            </a>
 
-"projects.html": r'''<!DOCTYPE html>
-<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Projects | PT Heavenly Telecom & Fiber</title><link rel="stylesheet" href="style.css"></head>
-<body>
-<header><div class="container nav"><a class="logo" href="index.html">HEAVENLY <span>TELECOM & FIBER</span></a><button class="menu">☰</button><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a class="active" href="projects.html">Projects</a></li><li><a href="contact.html">Contact</a></li></ul></div></header>
-<main><section class="page-hero"><div class="container reveal"><span class="eyebrow">Project Highlights</span><h1>Infrastructure built to <span class="gradient2">perform.</span></h1><p>Contoh portofolio proyek yang menggambarkan kemampuan kami dalam membangun dan mengintegrasikan infrastruktur jaringan.</p></div></section>
-<section><div class="container"><div class="grid">
-<div class="card project"><span class="num">PROJECT 01</span><h3>Fiber Optic Antar-Gedung Kampus / Sekolah</h3><p>Penarikan kabel serat optik sepanjang 2 km, splicing 24 core, dan konfigurasi VLAN Router untuk mendukung hingga 1.500 pengguna aktif.</p><div class="tags"><span class="tag">2 KM Fiber</span><span class="tag">24 Core</span><span class="tag">VLAN</span></div></div>
-<div class="card project"><span class="num">PROJECT 02</span><h3>Network & Wi-Fi Gedung Perkantoran 5 Lantai</h3><p>Pemasangan 150 titik jaringan UTP Cat6, 16 Access Point Ubiquiti, dan manajemen bandwidth QoS untuk konektivitas kantor.</p><div class="tags"><span class="tag">150 Points</span><span class="tag">16 AP</span><span class="tag">QoS</span></div></div>
-<div class="card project"><span class="num">PROJECT 03</span><h3>Disaster Recovery Server & VPN Multi-Cabang</h3><p>Menghubungkan 3 kantor cabang menggunakan jalur encrypted IPsec VPN dengan server cadangan untuk meningkatkan kontinuitas layanan.</p><div class="tags"><span class="tag">3 Branches</span><span class="tag">IPsec</span><span class="tag">DR</span></div></div>
-</div></div></section>
-<section><div class="container"><div class="card"><span class="eyebrow">Our Approach</span><h2>Plan. Deploy. <span class="gradient2">Optimize.</span></h2><ul class="list" style="margin-top:18px"><li>Survey dan analisis kebutuhan jaringan.</li><li>Perancangan topologi dan kapasitas infrastruktur.</li><li>Instalasi, konfigurasi, dan pengujian.</li><li>Monitoring serta optimasi berkelanjutan.</li></ul></div></div></section>
-</main><footer>© 2022–2026 PT Heavenly Telecom & Fiber. All rights reserved.</footer><script src="script.js"></script></body></html>
-''',
+            <button class="menu" aria-label="Buka menu">
+                ☰
+            </button>
 
-"contact.html": r'''<!DOCTYPE html>
-<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Contact | PT Heavenly Telecom & Fiber</title><link rel="stylesheet" href="style.css"></head>
-<body>
-<header><div class="container nav"><a class="logo" href="index.html">HEAVENLY <span>TELECOM & FIBER</span></a><button class="menu">☰</button><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a class="active" href="contact.html">Contact</a></li></ul></div></header>
-<main><section class="page-hero"><div class="container reveal"><span class="eyebrow">Contact Us</span><h1>Let's build your <span class="gradient2">next connection.</span></h1><p>Hubungi tim PT Heavenly Telecom & Fiber untuk konsultasi kebutuhan jaringan dan infrastruktur telekomunikasi.</p></div></section>
-<section><div class="container contact-grid"><div class="card"><span class="eyebrow">Get in Touch</span><h2>Contact <span class="gradient2">Information</span></h2>
-<div class="contact-item"><strong>Office</strong><span>Jl. Telematika Utama No. 99, Kawasan Industri Digital, Jakarta Selatan</span></div>
-<div class="contact-item"><strong>Phone / WhatsApp</strong><span>(021) 777-1995 / +62 812-9988-7766</span></div>
-<div class="contact-item"><strong>Email</strong><span>info@heavenlytelecom.co.id<br>support@heavenlytelecom.co.id</span></div>
-<div class="contact-item"><strong>Website</strong><span>heavenlytelecom.co</span></div>
-<div class="contact-item"><strong>Operating Hours</strong><span>Senin–Jumat, 08:00–17:00 WIB<br>Support Center 24/7</span></div>
-</div>
-<div class="card"><span class="eyebrow">Send a Message</span><h2>Tell us what you <span class="gradient2">need.</span></h2><form><div class="row"><label>Nama<input required type="text" placeholder="Nama Anda"></label><label>Email<input required type="email" placeholder="email@contoh.com"></label></div><label>Perusahaan<input type="text" placeholder="Nama perusahaan"></label><label>Pesan<textarea required placeholder="Ceritakan kebutuhan jaringan Anda..."></textarea></label><button class="btn primary" type="submit">Send Message →</button></form></div></div></section>
-</main><footer>© 2022–2026 PT Heavenly Telecom & Fiber. All rights reserved.</footer><script src="script.js"></script></body></html>
-'''
-}
+            <ul class="nav-links">
+                <li>
+                    <a href="#home">Home</a>
+                </li>
 
-for name, content in files.items():
-    (root/name).write_text(textwrap.dedent(content).strip(), encoding="utf-8")
+                <li>
+                    <a href="#about">About Us</a>
+                </li>
 
-zip_path = Path("/mnt/data/PT-Heavenly-Telecom-Fiber-Website.zip")
-with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
-    for p in root.iterdir():
-        z.write(p, p.name)
+                <li>
+                    <a href="#services">Services</a>
+                </li>
 
-print(f"Website lengkap dibuat: {zip_path}")
-print("Isi:", ", ".join(files.keys()))
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- =========================
+             HOME
+        ========================== -->
+        <section id="home" class="hero">
+
+            <div class="orb"></div>
+
+            <div class="container">
+
+                <div class="reveal">
+
+                    <span class="eyebrow">
+                        Telecommunication • Fiber Optic • Network Solutions
+                    </span>
+
+                    <h1>
+                        Connecting Business with
+                        <span class="gradient">
+                            Seamless Connectivity.
+                        </span>
+                    </h1>
+
+                    <p>
+                        PT Heavenly Telecom & Fiber menghadirkan infrastruktur
+                        telekomunikasi, fiber optic, dan jaringan terpadu yang
+                        stabil, aman, dan siap mendukung pertumbuhan bisnis.
+                    </p>
+
+                    <div class="actions">
+
+                        <a href="#services" class="btn primary">
+                            Explore Services →
+                        </a>
+
+                        <a href="#contact" class="btn secondary">
+                            Get in Touch
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ABOUT / WHY HEAVENLY
+        ========================== -->
+        <section id="about">
+
+            <div class="container">
+
+                <div class="section-head">
+
+                    <span class="eyebrow">
+                        Why Heavenly
+                    </span>
+
+                    <h2>
+                        Infrastruktur digital yang
+                        <span class="gradient2">
+                            dapat diandalkan.
+                        </span>
+                    </h2>
+
+                    <p>
+                        Kami menggabungkan teknologi jaringan modern dengan
+                        pengerjaan profesional untuk kebutuhan enterprise.
+                    </p>
+
+                </div>
+
+
+                <div class="grid">
+
+                    <!-- Card 1 -->
+                    <div class="card reveal">
+
+                        <div class="icon">
+                            ⌁
+                        </div>
+
+                        <h3>
+                            Fiber Optic
+                        </h3>
+
+                        <p>
+                            Instalasi, splicing, pengujian OTDR,
+                            dan infrastruktur FTTH/FTTX.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Card 2 -->
+                    <div class="card reveal delay1">
+
+                        <div class="icon">
+                            ◈
+                        </div>
+
+                        <h3>
+                            Network
+                        </h3>
+
+                        <p>
+                            Perancangan LAN, WAN, WLAN, routing,
+                            switching, dan integrasi jaringan.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Card 3 -->
+                    <div class="card reveal delay2">
+
+                        <div class="icon">
+                            ▣
+                        </div>
+
+                        <h3>
+                            Server
+                        </h3>
+
+                        <p>
+                            Pengelolaan server, cloud, dedicated
+                            bandwidth, dan QoS.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Card 4 -->
+                    <div class="card reveal delay3">
+
+                        <div class="icon">
+                            ◉
+                        </div>
+
+                        <h3>
+                            Security
+                        </h3>
+
+                        <p>
+                            Firewall, monitoring, dan pengamanan
+                            infrastruktur jaringan.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- About Company -->
+
+                <div class="about-box" style="margin-top: 25px;">
+
+                    <div class="card">
+
+                        <span class="eyebrow">
+                            About Us
+                        </span>
+
+                        <h2>
+                            Menjadi tulang punggung
+                            <span class="gradient2">
+                                digital.
+                            </span>
+                        </h2>
+
+                        <p style="margin-top: 18px;">
+
+                            PT Heavenly Telecom & Fiber adalah perusahaan
+                            penyedia layanan jaringan telekomunikasi,
+                            infrastruktur Fiber Optic, dan sistem jaringan
+                            terpadu yang beroperasi sejak 2022.
+
+                            Kami berfokus menghadirkan konektivitas
+                            berkecepatan tinggi yang stabil dan seamless
+                            untuk bisnis, pendidikan, hingga perkantoran.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <span class="eyebrow">
+                            Our Vision
+                        </span>
+
+                        <h3>
+                            Connectivity Without Boundaries
+                        </h3>
+
+                        <p style="margin-top: 15px;">
+
+                            Menjadi perusahaan telekomunikasi dan jaringan
+                            Fiber Optic terdepan yang menghadirkan
+                            konektivitas tanpa batas, aman, dan dapat
+                            diandalkan di seluruh Indonesia.
+
+                        </p>
+
+
+                        <div class="stats">
+
+                            <div class="stat">
+                                <strong>99.9%</strong>
+                                <span>Target Uptime</span>
+                            </div>
+
+                            <div class="stat">
+                                <strong>24/7</strong>
+                                <span>Support Center</span>
+                            </div>
+
+                            <div class="stat">
+                                <strong>2022</strong>
+                                <span>Established</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Mission -->
+
+                <div style="margin-top: 25px;" class="card">
+
+                    <span class="eyebrow">
+                        Our Mission
+                    </span>
+
+                    <h2>
+                        Standar kerja yang
+                        <span class="gradient2">
+                            kami pegang.
+                        </span>
+                    </h2>
+
+                    <ul class="list" style="margin-top: 15px;">
+
+                        <li>
+                            Menyediakan jaringan internet dan komunikasi
+                            serat optik dengan bandwidth murni dan latency rendah.
+                        </li>
+
+                        <li>
+                            Mendorong keandalan jaringan hingga 99.9%
+                            melalui sistem jalur cadangan dan redundancy.
+                        </li>
+
+                        <li>
+                            Merancang dan mengimplementasikan topologi
+                            jaringan kabel optic dan wireless skala enterprise.
+                        </li>
+
+                        <li>
+                            Memberikan dukungan teknis yang sigap dan
+                            responsif melalui support center 24/7.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SERVICES
+        ========================== -->
+        <section id="services">
+
+            <div class="container">
+
+                <div class="section-head">
+
+                    <span class="eyebrow">
+                        Our Services
+                    </span>
+
+                    <h2>
+                        Solutions for
+                        <span class="gradient2">
+                            Connected Business.
+                        </span>
+                    </h2>
+
+                    <p>
+                        Dari kabel fiber optic hingga keamanan jaringan,
+                        kami menyediakan solusi yang dirancang untuk
+                        kebutuhan infrastruktur modern.
+                    </p>
+
+                </div>
+
+
+                <div class="grid two">
+
+                    <!-- Service 1 -->
+
+                    <div class="card">
+
+                        <div class="icon">
+                            ⌁
+                        </div>
+
+                        <h3>
+                            Fiber Optic Installation & Splicing
+                        </h3>
+
+                        <p>
+                            Penarikan kabel Fiber Optic (FTTH/FTTX),
+                            penyambungan serat optik (splicing),
+                            serta pengujian kualitas sinyal menggunakan OTDR.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">FTTH</span>
+                            <span class="tag">FTTX</span>
+                            <span class="tag">Splicing</span>
+                            <span class="tag">OTDR</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Service 2 -->
+
+                    <div class="card">
+
+                        <div class="icon">
+                            ◈
+                        </div>
+
+                        <h3>
+                            Network Planning & Integration
+                        </h3>
+
+                        <p>
+                            Perancangan topologi LAN/WAN/WLAN,
+                            konfigurasi Core Router, Managed Switch,
+                            dan Access Point enterprise.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">LAN</span>
+                            <span class="tag">WAN</span>
+                            <span class="tag">WLAN</span>
+                            <span class="tag">Routing</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Service 3 -->
+
+                    <div class="card">
+
+                        <div class="icon">
+                            ▣
+                        </div>
+
+                        <h3>
+                            Server & Dedicated Bandwidth
+                        </h3>
+
+                        <p>
+                            Pengelolaan server lokal/cloud,
+                            penyediaan Dedicated Internet Access (DIA),
+                            dan manajemen bandwidth menggunakan QoS.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">Server</span>
+                            <span class="tag">Cloud</span>
+                            <span class="tag">DIA</span>
+                            <span class="tag">QoS</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Service 4 -->
+
+                    <div class="card">
+
+                        <div class="icon">
+                            ◉
+                        </div>
+
+                        <h3>
+                            Network Security & Monitoring
+                        </h3>
+
+                        <p>
+                            Konfigurasi firewall, proteksi jaringan
+                            dari ancaman siber, serta pemantauan trafik
+                            server dan jaringan secara real-time.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">Firewall</span>
+                            <span class="tag">Security</span>
+                            <span class="tag">Monitoring</span>
+                            <span class="tag">24/7</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Technology -->
+
+                <div class="card" style="margin-top: 25px;">
+
+                    <div class="section-head" style="margin-bottom: 30px;">
+
+                        <span class="eyebrow">
+                            Technology & Certification
+                        </span>
+
+                        <h2>
+                            Technology that
+                            <span class="gradient2">
+                                powers us.
+                            </span>
+                        </h2>
+
+                        <p>
+                            Teknologi dan platform yang digunakan
+                            dalam pengerjaan jaringan.
+                        </p>
+
+                    </div>
+
+
+                    <div class="grid two">
+
+                        <div>
+
+                            <h3>
+                                Hardware & Routing
+                            </h3>
+
+                            <div class="tags">
+
+                                <span class="tag">MikroTik</span>
+                                <span class="tag">MTCNA</span>
+                                <span class="tag">MTCRE</span>
+                                <span class="tag">Cisco</span>
+                                <span class="tag">CCNA</span>
+                                <span class="tag">Ubiquiti UniFi</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Fiber Optic Equipment
+                            </h3>
+
+                            <div class="tags">
+
+                                <span class="tag">Fusion Splicer</span>
+                                <span class="tag">OTDR</span>
+                                <span class="tag">OPM</span>
+                                <span class="tag">VFL</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Server & OS
+                            </h3>
+
+                            <div class="tags">
+
+                                <span class="tag">Debian</span>
+                                <span class="tag">Ubuntu</span>
+                                <span class="tag">Windows Server</span>
+                                <span class="tag">Proxmox</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Enterprise Network
+                            </h3>
+
+                            <div class="tags">
+
+                                <span class="tag">VLAN</span>
+                                <span class="tag">VPN</span>
+                                <span class="tag">IPsec</span>
+                                <span class="tag">QoS</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJECTS
+        ========================== -->
+        <section id="projects">
+
+            <div class="container">
+
+                <div class="section-head">
+
+                    <span class="eyebrow">
+                        Project Highlights
+                    </span>
+
+                    <h2>
+                        Infrastructure built to
+                        <span class="gradient2">
+                            perform.
+                        </span>
+                    </h2>
+
+                    <p>
+                        Contoh portofolio proyek yang menggambarkan
+                        kemampuan kami dalam membangun dan
+                        mengintegrasikan infrastruktur jaringan.
+                    </p>
+
+                </div>
+
+
+                <div class="grid">
+
+                    <!-- Project 1 -->
+
+                    <div class="card project">
+
+                        <span class="num">
+                            PROJECT 01
+                        </span>
+
+                        <h3>
+                            Fiber Optic Antar-Gedung
+                            Kampus / Sekolah
+                        </h3>
+
+                        <p>
+                            Penarikan kabel serat optik sepanjang 2 km,
+                            splicing 24 core, dan konfigurasi VLAN Router
+                            untuk mendukung hingga 1.500 pengguna aktif.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">2 KM Fiber</span>
+                            <span class="tag">24 Core</span>
+                            <span class="tag">VLAN</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Project 2 -->
+
+                    <div class="card project">
+
+                        <span class="num">
+                            PROJECT 02
+                        </span>
+
+                        <h3>
+                            Network & Wi-Fi Gedung
+                            Perkantoran 5 Lantai
+                        </h3>
+
+                        <p>
+                            Pemasangan 150 titik jaringan UTP Cat6,
+                            16 Access Point Ubiquiti, dan manajemen
+                            bandwidth QoS untuk konektivitas kantor.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">150 Points</span>
+                            <span class="tag">16 AP</span>
+                            <span class="tag">QoS</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Project 3 -->
+
+                    <div class="card project">
+
+                        <span class="num">
+                            PROJECT 03
+                        </span>
+
+                        <h3>
+                            Disaster Recovery Server
+                            & VPN Multi-Cabang
+                        </h3>
+
+                        <p>
+                            Menghubungkan 3 kantor cabang menggunakan
+                            encrypted IPsec VPN dengan server cadangan
+                            untuk meningkatkan kontinuitas layanan.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">3 Branches</span>
+                            <span class="tag">IPsec</span>
+                            <span class="tag">DR</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Approach -->
+
+                <div class="card" style="margin-top: 25px;">
+
+                    <span class="eyebrow">
+                        Our Approach
+                    </span>
+
+                    <h2>
+                        Plan. Deploy.
+                        <span class="gradient2">
+                            Optimize.
+                        </span>
+                    </h2>
+
+                    <ul class="list" style="margin-top: 15px;">
+
+                        <li>
+                            Survey dan analisis kebutuhan jaringan.
+                        </li>
+
+                        <li>
+                            Perancangan topologi dan kapasitas infrastruktur.
+                        </li>
+
+                        <li>
+                            Instalasi, konfigurasi, dan pengujian.
+                        </li>
+
+                        <li>
+                            Monitoring serta optimasi berkelanjutan.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+        <section id="contact">
+
+            <div class="container">
+
+                <div class="section-head">
+
+                    <span class="eyebrow">
+                        Contact Us
+                    </span>
+
+                    <h2>
+                        Let's build your
+                        <span class="gradient2">
+                            next connection.
+                        </span>
+                    </h2>
+
+                    <p>
+                        Hubungi tim PT Heavenly Telecom & Fiber
+                        untuk konsultasi kebutuhan jaringan dan
+                        infrastruktur telekomunikasi.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-grid">
+
+                    <!-- Contact Information -->
+
+                    <div class="card">
+
+                        <span class="eyebrow">
+                            Get in Touch
+                        </span>
+
+                        <h2>
+                            Contact Information
+                        </h2>
+
+
+                        <div class="contact-item">
+
+                            <strong>
+                                Office
+                            </strong>
+
+                            <span>
+                                Jl. Telematika Utama No. 99,
+                                Kawasan Industri Digital,
+                                Jakarta Selatan
+                            </span>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <strong>
+                                Phone / WhatsApp
+                            </strong>
+
+                            <span>
+                                (021) 777-1995
+                                <br>
+                                +62 812-9988-7766
+                            </span>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <strong>
+                                Email
+                            </strong>
+
+                            <span>
+                                info@heavenlytelecom.co.id
+                                <br>
+                                support@heavenlytelecom.co.id
+                            </span>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <strong>
+                                Website
+                            </strong>
+
+                            <span>
+                                heavenlytelecom.co
+                            </span>
+
+                        </div>
+
+
+                        <div class="contact-item">
+
+                            <strong>
+                                Operating Hours
+                            </strong>
+
+                            <span>
+                                Senin–Jumat, 08:00–17:00 WIB
+                                <br>
+                                Support Center 24/7
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Contact Form -->
+
+                    <div class="card">
+
+                        <span class="eyebrow">
+                            Send a Message
+                        </span>
+
+                        <h2>
+                            Tell us what you need.
+                        </h2>
+
+
+                        <form>
+
+                            <div class="row">
+
+                                <div>
+
+                                    <label for="name">
+                                        Nama
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        placeholder="Nama Anda"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div>
+
+                                    <label for="email">
+                                        Email
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        placeholder="email@example.com"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+
+                                <div>
+
+                                    <label for="company">
+                                        Perusahaan
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="company"
+                                        name="company"
+                                        placeholder="Nama perusahaan"
+                                    >
+
+                                </div>
+
+
+                                <div>
+
+                                    <label for="phone">
+                                        No. Telepon
+                                    </label>
+
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        name="phone"
+                                        placeholder="+62..."
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <div>
+
+                                <label for="message">
+                                    Pesan
+                                </label>
+
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    placeholder="Ceritakan kebutuhan jaringan Anda..."
+                                    required
+                                ></textarea>
+
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                class="btn primary"
+                            >
+                                Send Message →
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer>
+
+        <div class="container">
+
+            © 2022–2026 PT Heavenly Telecom & Fiber.
+            All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* Mobile Navbar */
+
+        const menu = document.querySelector(".menu");
+        const navLinks = document.querySelector(".nav-links");
+
+        if (menu) {
+
+            menu.addEventListener("click", () => {
+
+                navLinks.classList.toggle("open");
+
+            });
+
+        }
+
+
+        /* Close mobile menu after clicking navigation */
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("open");
+
+            });
+
+        });
+
+
+        /* Navbar effect when scrolling */
+
+        window.addEventListener("scroll", () => {
+
+            const header = document.querySelector("header");
+
+            if (window.scrollY > 50) {
+
+                header.classList.add("scrolled");
+
+            } else {
+
+                header.classList.remove("scrolled");
+
+            }
+
+        });
+
+
+        /* Contact Form */
+
+        document.querySelectorAll("form").forEach(form => {
+
+            form.addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                alert(
+                    "Pesan berhasil disiapkan. " +
+                    "Untuk versi produksi, hubungkan form ini ke layanan email atau form backend."
+                );
+
+                form.reset();
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
