@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portofolio | PT Heavenly Telecom & Fiber</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Inter,sans-serif;
+background:#0B0F19;
+color:#f8fafc;
+line-height:1.7
+}
+
+a{text-decoration:none;color:inherit}
+
+.container{
+width:min(1120px,90%);
+margin:auto
+}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+z-index:1000;
+background:rgba(11,15,25,.8);
+backdrop-filter:blur(16px);
+border-bottom:1px solid rgba(255,255,255,.07)
+}
+
+.nav-container{
+min-height:76px;
+display:flex;
+align-items:center;
+justify-content:space-between
+}
+
+.logo{
+font-size:18px;
+font-weight:800
+}
+
+.logo span{
+color:#38BDF8;
+text-shadow:0 0 15px rgba(56,189,248,.5)
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+list-style:none
+}
+
+.nav-links a{
+color:#94a3b8;
+font-size:14px;
+font-weight:600;
+transition:.3s
+}
+
+.nav-links a:hover,
+.nav-links .active{
+color:#38BDF8
+}
+
+.menu-btn{
+display:none;
+font-size:25px;
+cursor:pointer
+}
+
+.header{
+padding:170px 0 90px;
+text-align:center
+}
+
+.header small{
+color:#38BDF8;
+font-weight:700;
+letter-spacing:2px
+}
+
+.header h1{
+font-size:clamp(40px,6vw,65px);
+margin:15px 0;
+line-height:1.1
+}
+
+.header p{
+max-width:650px;
+margin:auto;
+color:#94a3b8
+}
+
+section{
+padding:70px 0
+}
+
+.projects{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px
+}
+
+.project{
+background:#101724;
+border-radius:18px;
+border:1px solid rgba(255,255,255,.07);
+overflow:hidden;
+transition:.35s
+}
+
+.project:hover{
+transform:translateY(-8px);
+border-color:rgba(56,189,248,.45);
+box-shadow:0 15px 40px rgba(0,0,0,.3)
+}
+
+.project-top{
+height:160px;
+display:grid;
+place-items:center;
+background:
+radial-gradient(circle,rgba(56,189,248,.16),transparent 60%),
+#0e1623;
+color:#38BDF8;
+font-size:55px
+}
+
+.project-content{
+padding:27px
+}
+
+.project-content h2{
+font-size:19px;
+margin-bottom:12px
+}
+
+.project-content p{
+font-size:13px;
+color:#94a3b8
+}
+
+.project-content span{
+display:inline-block;
+margin-top:18px;
+padding:6px 10px;
+border-radius:30px;
+background:rgba(56,189,248,.07);
+color:#38BDF8;
+font-size:11px
+}
+
+footer{
+border-top:1px solid rgba(255,255,255,.07);
+padding:35px 0;
+color:#64748b;
+font-size:13px
+}
+
+.footer{
+display:flex;
+justify-content:space-between
+}
+
+@media(max-width:900px){
+.projects{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:800px){
+
+.menu-btn{display:block}
+
+.nav-links{
+display:none;
+position:absolute;
+top:76px;
+left:0;
+width:100%;
+padding:20px 5%;
+background:#0B0F19;
+flex-direction:column;
+gap:18px
+}
+
+.nav-links.show{display:flex}
+
+.projects{grid-template-columns:1fr}
+
+.footer{
+flex-direction:column;
+gap:10px
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="container nav-container">
+
+<a href="index.html" class="logo">
+HEAVENLY <span>TELECOM</span>
+</a>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html">Beranda</a></li>
+<li><a href="layanan.html">Layanan</a></li>
+<li><a href="tentang.html">Tentang Kami</a></li>
+<li><a href="portofolio.html" class="active">Portofolio</a></li>
+<li><a href="kontak.html">Kontak</a></li>
+</ul>
+
+</div>
+</nav>
+
+<header class="header">
+<div class="container">
+
+<small>OUR PROJECTS</small>
+
+<h1>
+Projects That
+<span style="color:#38BDF8">Connect</span>
+</h1>
+
+<p>
+Beberapa proyek infrastruktur jaringan yang
+dikerjakan oleh PT Heavenly Telecom & Fiber.
+</p>
+
+</div>
+</header>
+
+<section>
+<div class="container">
+
+<div class="projects">
+
+<div class="project">
+
+<div class="project-top">⌁</div>
+
+<div class="project-content">
+
+<h2>Campus Fiber Backbone</h2>
+
+<p>
+Pembangunan jaringan Fiber Optic antar gedung
+kampus dengan total jalur 2 km dan 24-core fiber.
+</p>
+
+<span>2 KM FIBER</span>
+
+</div>
+</div>
+
+<div class="project">
+
+<div class="project-top">⌘</div>
+
+<div class="project-content">
+
+<h2>5-Floor Office Network</h2>
+
+<p>
+Implementasi jaringan kantor lima lantai dengan
+150 titik Cat6 dan 16 Access Point Ubiquiti.
+</p>
+
+<span>150 CAT6 POINTS</span>
+
+</div>
+</div>
+
+<div class="project">
+
+<div class="project-top">▣</div>
+
+<div class="project-content">
+
+<h2>Multi-Branch VPN & DR</h2>
+
+<p>
+Pembangunan Disaster Recovery Server dan
+IPsec VPN untuk tiga kantor cabang.
+</p>
+
+<span>3 BRANCH OFFICES</span>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+<div class="container footer">
+<span>© 2026 PT Heavenly Telecom & Fiber</span>
+<span>Enterprise Network Solutions</span>
+</div>
+</footer>
+
+<script>
+function toggleMenu(){
+document.getElementById("navLinks").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
