@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kontak | PT Heavenly Telecom & Fiber</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Inter,sans-serif;
+background:#0B0F19;
+color:#f8fafc;
+line-height:1.7
+}
+
+a{text-decoration:none;color:inherit}
+
+.container{
+width:min(1120px,90%);
+margin:auto
+}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+z-index:1000;
+background:rgba(11,15,25,.8);
+backdrop-filter:blur(16px);
+border-bottom:1px solid rgba(255,255,255,.07)
+}
+
+.nav-container{
+min-height:76px;
+display:flex;
+align-items:center;
+justify-content:space-between
+}
+
+.logo{
+font-size:18px;
+font-weight:800
+}
+
+.logo span{
+color:#38BDF8;
+text-shadow:0 0 15px rgba(56,189,248,.5)
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+list-style:none
+}
+
+.nav-links a{
+color:#94a3b8;
+font-size:14px;
+font-weight:600;
+transition:.3s
+}
+
+.nav-links a:hover,
+.nav-links .active{
+color:#38BDF8
+}
+
+.menu-btn{
+display:none;
+font-size:25px;
+cursor:pointer
+}
+
+.header{
+padding:170px 0 90px;
+text-align:center
+}
+
+.header small{
+color:#38BDF8;
+font-weight:700;
+letter-spacing:2px
+}
+
+.header h1{
+font-size:clamp(40px,6vw,65px);
+margin:15px 0;
+line-height:1.1
+}
+
+.header p{
+max-width:650px;
+margin:auto;
+color:#94a3b8
+}
+
+section{
+padding:60px 0 100px
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px
+}
+
+.info{
+background:#101724;
+padding:35px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,.07)
+}
+
+.info h2{
+margin-bottom:25px
+}
+
+.contact-item{
+padding:18px 0;
+border-bottom:1px solid rgba(255,255,255,.06)
+}
+
+.contact-item:last-child{
+border-bottom:0
+}
+
+.contact-item small{
+display:block;
+color:#38BDF8;
+font-size:11px;
+font-weight:700;
+text-transform:uppercase
+}
+
+.contact-item p{
+color:#cbd5e1;
+font-size:14px;
+margin-top:4px
+}
+
+form{
+background:#101724;
+padding:35px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,.07)
+}
+
+form h2{
+margin-bottom:25px
+}
+
+input,
+textarea{
+width:100%;
+background:#0B0F19;
+border:1px solid rgba(255,255,255,.1);
+border-radius:10px;
+padding:14px;
+margin-bottom:15px;
+color:white;
+font-family:inherit;
+outline:none;
+transition:.3s
+}
+
+input:focus,
+textarea:focus{
+border-color:#38BDF8;
+box-shadow:0 0 15px rgba(56,189,248,.08)
+}
+
+textarea{
+min-height:140px;
+resize:vertical
+}
+
+button{
+border:0;
+cursor:pointer;
+padding:13px 25px;
+border-radius:10px;
+background:#38BDF8;
+color:#06101c;
+font-weight:800;
+transition:.3s
+}
+
+button:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 30px rgba(56,189,248,.25)
+}
+
+footer{
+border-top:1px solid rgba(255,255,255,.07);
+padding:35px 0;
+color:#64748b;
+font-size:13px
+}
+
+.footer{
+display:flex;
+justify-content:space-between
+}
+
+@media(max-width:800px){
+
+.menu-btn{display:block}
+
+.nav-links{
+display:none;
+position:absolute;
+top:76px;
+left:0;
+width:100%;
+padding:20px 5%;
+background:#0B0F19;
+flex-direction:column;
+gap:18px
+}
+
+.nav-links.show{display:flex}
+
+.contact-grid{
+grid-template-columns:1fr
+}
+
+.footer{
+flex-direction:column;
+gap:10px
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="container nav-container">
+
+<a href="index.html" class="logo">
+HEAVENLY <span>TELECOM</span>
+</a>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html">Beranda</a></li>
+<li><a href="layanan.html">Layanan</a></li>
+<li><a href="tentang.html">Tentang Kami</a></li>
+<li><a href="portofolio.html">Portofolio</a></li>
+<li><a href="kontak.html" class="active">Kontak</a></li>
+</ul>
+
+</div>
+</nav>
+
+<header class="header">
+<div class="container">
+
+<small>CONTACT US</small>
+
+<h1>
+Let's Build Your
+<span style="color:#38BDF8">Connection</span>
+</h1>
+
+<p>
+Hubungi tim PT Heavenly Telecom & Fiber untuk
+konsultasi kebutuhan jaringan dan infrastruktur digital Anda.
+</p>
+
+</div>
+</header>
+
+<section>
+<div class="container">
+
+<div class="contact-grid">
+
+<div class="info">
+
+<h2>Informasi Kontak</h2>
+
+<div class="contact-item">
+<small>Office</small>
+<p>
+Jl. Telematika Utama No. 99,<br>
+Kawasan Industri Digital,<br>
+Jakarta Selatan
+</p>
+</div>
+
+<div class="contact-item">
+<small>Phone / WhatsApp</small>
+<p>(021) 777-1995<br>+62 812-9988-7766</p>
+</div>
+
+<div class="contact-item">
+<small>Email</small>
+<p>info@heavenlytelecom.co.id<br>support@heavenlytelecom.co.id</p>
+</div>
+
+<div class="contact-item">
+<small>Operating Hours</small>
+<p>
+Senin – Jumat · 08:00 – 17:00 WIB<br>
+Support Center · 24/7
+</p>
+</div>
+
+</div>
+
+<form onsubmit="sendMessage(event)">
+
+<h2>Kirim Pesan</h2>
+
+<input type="text" placeholder="Nama Lengkap" required>
+
+<input type="email" placeholder="Email" required>
+
+<input type="text" placeholder="Subjek" required>
+
+<textarea placeholder="Ceritakan kebutuhan jaringan Anda..." required></textarea>
+
+<button type="submit">
+Kirim Pesan
+</button>
+
+</form>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+<div class="container footer">
+<span>© 2026 PT Heavenly Telecom & Fiber</span>
+<span>Seamless & Heavenly Connectivity</span>
+</div>
+</footer>
+
+<script>
+function toggleMenu(){
+document.getElementById("navLinks").classList.toggle("show");
+}
+
+function sendMessage(event){
+event.preventDefault();
+
+alert("Terima kasih. Pesan Anda berhasil disiapkan untuk PT Heavenly Telecom & Fiber.");
+
+event.target.reset();
+}
+</script>
+
+</body>
+</html>
