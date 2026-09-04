@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tentang Kami | PT Heavenly Telecom & Fiber</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Inter,sans-serif;
+background:#0B0F19;
+color:#f8fafc;
+line-height:1.7
+}
+
+a{text-decoration:none;color:inherit}
+
+.container{
+width:min(1120px,90%);
+margin:auto
+}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+z-index:1000;
+background:rgba(11,15,25,.8);
+backdrop-filter:blur(16px);
+border-bottom:1px solid rgba(255,255,255,.07)
+}
+
+.nav-container{
+min-height:76px;
+display:flex;
+align-items:center;
+justify-content:space-between
+}
+
+.logo{
+font-size:18px;
+font-weight:800
+}
+
+.logo span{
+color:#38BDF8;
+text-shadow:0 0 15px rgba(56,189,248,.5)
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+list-style:none
+}
+
+.nav-links a{
+color:#94a3b8;
+font-size:14px;
+font-weight:600;
+transition:.3s
+}
+
+.nav-links a:hover,
+.nav-links .active{
+color:#38BDF8
+}
+
+.menu-btn{
+display:none;
+font-size:25px;
+cursor:pointer
+}
+
+.header{
+padding:170px 0 90px;
+text-align:center
+}
+
+.header small{
+color:#38BDF8;
+font-weight:700;
+letter-spacing:2px
+}
+
+.header h1{
+font-size:clamp(40px,6vw,65px);
+line-height:1.1;
+margin:15px 0
+}
+
+.header p{
+max-width:700px;
+margin:auto;
+color:#94a3b8
+}
+
+section{
+padding:70px 0
+}
+
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px
+}
+
+.box{
+background:#101724;
+padding:35px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,.07)
+}
+
+.box h2{
+margin-bottom:18px;
+font-size:26px
+}
+
+.box p{
+color:#94a3b8;
+font-size:14px
+}
+
+.highlight{
+color:#38BDF8
+}
+
+.mission{
+margin-top:25px;
+display:grid;
+gap:12px
+}
+
+.mission div{
+padding:16px;
+border-left:2px solid #38BDF8;
+background:rgba(56,189,248,.04);
+color:#cbd5e1;
+font-size:14px
+}
+
+.stats{
+margin-top:50px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px
+}
+
+.stat{
+background:#101724;
+padding:30px;
+text-align:center;
+border:1px solid rgba(255,255,255,.07);
+border-radius:16px
+}
+
+.stat strong{
+display:block;
+font-size:34px;
+color:#38BDF8
+}
+
+.stat span{
+font-size:12px;
+color:#64748b
+}
+
+footer{
+border-top:1px solid rgba(255,255,255,.07);
+padding:35px 0;
+color:#64748b;
+font-size:13px
+}
+
+.footer{
+display:flex;
+justify-content:space-between
+}
+
+@media(max-width:800px){
+
+.menu-btn{display:block}
+
+.nav-links{
+display:none;
+position:absolute;
+top:76px;
+left:0;
+width:100%;
+padding:20px 5%;
+background:#0B0F19;
+flex-direction:column;
+gap:18px
+}
+
+.nav-links.show{display:flex}
+
+.about-grid,
+.stats{
+grid-template-columns:1fr
+}
+
+.footer{
+flex-direction:column;
+gap:10px
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="container nav-container">
+
+<a href="index.html" class="logo">
+HEAVENLY <span>TELECOM</span>
+</a>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html">Beranda</a></li>
+<li><a href="layanan.html">Layanan</a></li>
+<li><a href="tentang.html" class="active">Tentang Kami</a></li>
+<li><a href="portofolio.html">Portofolio</a></li>
+<li><a href="kontak.html">Kontak</a></li>
+</ul>
+
+</div>
+</nav>
+
+<header class="header">
+<div class="container">
+
+<small>ABOUT US</small>
+
+<h1>
+Connecting Indonesia's
+<span class="highlight">Digital Future</span>
+</h1>
+
+<p>
+Mengenal lebih dekat PT Heavenly Telecom & Fiber,
+perusahaan yang bergerak dalam bidang telekomunikasi,
+Fiber Optic, network engineering, dan digital infrastructure.
+</p>
+
+</div>
+</header>
+
+<section>
+<div class="container">
+
+<div class="about-grid">
+
+<div class="box">
+<h2>Tentang Perusahaan</h2>
+
+<p>
+PT <span class="highlight">Heavenly Telecom & Fiber</span>
+merupakan perusahaan telekomunikasi dan integrator
+infrastruktur jaringan yang telah beroperasi sejak 2022.
+</p>
+
+<br>
+
+<p>
+Kami berfokus pada pembangunan konektivitas berkecepatan
+tinggi, stabil, aman, dan scalable untuk kebutuhan bisnis,
+pendidikan, perkantoran, dan enterprise.
+</p>
+
+<br>
+
+<p>
+Dengan dukungan tim teknis profesional dan teknologi
+jaringan modern, kami membantu pelanggan membangun
+digital backbone yang dapat diandalkan.
+</p>
+</div>
+
+<div class="box">
+<h2>Visi</h2>
+
+<p>
+Menjadi perusahaan telekomunikasi dan Fiber Optic
+terkemuka yang menghadirkan konektivitas tanpa batas,
+aman, stabil, dan terpercaya di seluruh Indonesia.
+</p>
+
+<h2 style="margin-top:35px">Misi</h2>
+
+<div class="mission">
+
+<div>01 — Menyediakan broadband berkualitas tinggi.</div>
+
+<div>02 — Menjaga network availability hingga 99.9%.</div>
+
+<div>03 — Membangun infrastruktur jaringan terintegrasi.</div>
+
+<div>04 — Memberikan layanan teknis profesional 24/7.</div>
+
+</div>
+</div>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<strong>2022</strong>
+<span>Operating Since</span>
+</div>
+
+<div class="stat">
+<strong>99.9%</strong>
+<span>Target Availability</span>
+</div>
+
+<div class="stat">
+<strong>24/7</strong>
+<span>Technical Support</span>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+<div class="container footer">
+<span>© 2026 PT Heavenly Telecom & Fiber</span>
+<span>Reliable · Secure · Seamless</span>
+</div>
+</footer>
+
+<script>
+function toggleMenu(){
+document.getElementById("navLinks").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
