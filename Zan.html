@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PPT by Intimedia | Internet Kampung Surabaya</title>
+  <meta
+    name="description"
+    content="Company profile PPT by Intimedia, internet Full Fiber Optik unlimited untuk rumah dan UMKM di Surabaya."
+  >
+
+  <style>
+    :root {
+      --bg: #070707;
+      --surface: rgba(255, 255, 255, 0.055);
+      --surface-strong: rgba(255, 255, 255, 0.085);
+      --text: #f7f7f8;
+      --muted: #a2a2a8;
+      --red: #ff1738;
+      --red-soft: rgba(255, 23, 56, 0.14);
+      --border: rgba(255, 255, 255, 0.11);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 70% 12%, rgba(255, 23, 56, 0.07), transparent 28%),
+        var(--bg);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "SF Pro Text",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .glass {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.075),
+          rgba(255, 255, 255, 0.018)
+        );
+      box-shadow:
+        inset 0 1px rgba(255, 255, 255, 0.08),
+        var(--shadow);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+
+    .glass::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 80%;
+      height: 100%;
+      pointer-events: none;
+      background: linear-gradient(
+        100deg,
+        transparent,
+        rgba(255, 255, 255, 0.055),
+        transparent
+      );
+      transform: skewX(-18deg);
+      transition: left 0.8s ease;
+    }
+
+    .glass:hover::before {
+      left: 140%;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 21px;
+      height: 2px;
+      background: var(--red);
+      box-shadow: 0 0 14px var(--red);
+    }
+
+    .nav {
+      position: relative;
+      z-index: 15;
+      height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 39px;
+      height: 39px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: var(--red);
+      font-weight: 800;
+      box-shadow: 0 0 35px rgba(255, 23, 56, 0.42);
+    }
+
+    .brand strong,
+    .brand small {
+      display: block;
+    }
+
+    .brand strong {
+      font-size: 14px;
+    }
+
+    .brand small {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-contact {
+      padding: 11px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text);
+      background: var(--surface);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero {
+      position: relative;
+      z-index: 2;
+      min-height: 760px;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
+      padding-bottom: 75px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 3;
+    }
+
+    h1 {
+      max-width: 800px;
+      margin: 23px 0;
+      font-size: clamp(54px, 6.5vw, 94px);
+      font-weight: 650;
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    h1 span {
+      color: var(--red);
+      text-shadow: 0 0 45px rgba(255, 23, 56, 0.32);
+    }
+
+    .hero-description {
+      max-width: 580px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.55;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 37px;
+    }
+
+    .button {
+      min-height: 49px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 20px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      font-size: 14px;
+      font-weight: 700;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button-primary {
+      border-color: var(--red);
+      background: var(--red);
+      color: white;
+      box-shadow: 0 15px 45px rgba(255, 23, 56, 0.28);
+    }
+
+    .button-glass {
+      background: var(--surface);
+      backdrop-filter: blur(18px);
+    }
+
+    .fiber {
+      position: absolute;
+      z-index: 1;
+      top: 210px;
+      left: -7%;
+      width: 114%;
+      height: 350px;
+      pointer-events: none;
+      transform: rotate(-4deg);
+      filter: drop-shadow(0 0 18px rgba(255, 23, 56, 0.35));
+    }
+
+    .fiber svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .cable-shadow,
+    .cable-body,
+    .cable-light {
+      fill: none;
+      stroke-linecap: round;
+    }
+
+    .cable-shadow {
+      stroke: #010101;
+      stroke-width: 30;
+    }
+
+    .cable-body {
+      stroke: #54101b;
+      stroke-width: 14;
+    }
+
+    .cable-light {
+      stroke: #ff6d82;
+      stroke-width: 3;
+      stroke-dasharray: 3 48;
+      animation: data-flow 1.25s linear infinite;
+    }
+
+    @keyframes data-flow {
+      to {
+        stroke-dashoffset: -102;
+      }
+    }
+
+    .network-visual {
+      position: relative;
+      height: 500px;
+      display: grid;
+      place-items: center;
+    }
+
+    .signal-ring {
+      position: absolute;
+      border: 1px solid rgba(255, 23, 56, 0.27);
+      border-radius: 50%;
+      animation: ring-pulse 4s ease-in-out infinite;
+    }
+
+    .ring-1 {
+      width: 280px;
+      height: 280px;
+    }
+
+    .ring-2 {
+      width: 420px;
+      height: 420px;
+      animation-delay: -2s;
+    }
+
+    @keyframes ring-pulse {
+      50% {
+        opacity: 0.35;
+        transform: scale(1.06);
+      }
+    }
+
+    .network-center {
+      z-index: 2;
+      width: 170px;
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 23, 56, 0.46);
+      border-radius: 50%;
+      background: rgba(8, 8, 8, 0.68);
+      box-shadow:
+        inset 0 0 35px rgba(255, 23, 56, 0.08),
+        0 0 70px rgba(255, 23, 56, 0.16);
+      backdrop-filter: blur(24px);
+    }
+
+    .wifi {
+      position: relative;
+      width: 50px;
+      height: 38px;
+      margin-bottom: 16px;
+    }
+
+    .wifi span {
+      position: absolute;
+      left: 50%;
+      border: 4px solid var(--red);
+      border-bottom: 0;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      border-radius: 50% 50% 0 0;
+      transform: translateX(-50%);
+    }
+
+    .wifi span:nth-child(1) {
+      top: 0;
+      width: 48px;
+      height: 25px;
+    }
+
+    .wifi span:nth-child(2) {
+      top: 11px;
+      width: 30px;
+      height: 17px;
+    }
+
+    .wifi span:nth-child(3) {
+      top: 26px;
+      width: 7px;
+      height: 7px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--red);
+    }
+
+    .network-center small {
+      color: var(--muted);
+      font-size: 8px;
+      letter-spacing: 0.15em;
+    }
+
+    .network-center strong {
+      margin-top: 6px;
+      font-size: 13px;
+    }
+
+    .network-stat {
+      position: absolute;
+      z-index: 3;
+      min-width: 135px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: rgba(8, 8, 8, 0.7);
+      box-shadow: 0 17px 50px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(20px);
+    }
+
+    .network-stat span,
+    .network-stat strong {
+      display: block;
+    }
+
+    .network-stat span {
+      color: var(--muted);
+      font-size: 9px;
+      text-transform: uppercase;
+    }
+
+    .network-stat strong {
+      margin-top: 5px;
+      font-size: 13px;
+    }
+
+    .stat-1 {
+      top: 16%;
+      left: 4%;
+    }
+
+    .stat-2 {
+      top: 28%;
+      right: 0;
+    }
+
+    .stat-3 {
+      bottom: 13%;
+      left: 13%;
+    }
+
+    .hero-footer {
+      position: absolute;
+      right: 0;
+      bottom: 28px;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .ticker {
+      position: relative;
+      z-index: 4;
+      overflow: hidden;
+      padding: 17px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      white-space: nowrap;
+    }
+
+    .ticker-content {
+      width: max-content;
+      animation: ticker 26s linear infinite;
+    }
+
+    .ticker i {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      margin: 0 30px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 11px var(--red);
+    }
+
+    @keyframes ticker {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    section {
+      scroll-margin-top: 30px;
+    }
+
+    .section {
+      position: relative;
+      z-index: 3;
+      padding: 125px 0;
+    }
+
+    .section-heading {
+      max-width: 770px;
+      margin-bottom: 54px;
+    }
+
+    .section-heading h2,
+    .footer h2 {
+      margin: 20px 0 0;
+      font-size: clamp(39px, 5vw, 68px);
+      font-weight: 610;
+      line-height: 1.03;
+    }
+
+    .section-intro {
+      max-width: 610px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 16px;
+    }
+
+    .about-grid article {
+      padding: 30px;
+    }
+
+    .about-main {
+      grid-row: span 2;
+    }
+
+    .about-main > p {
+      max-width: 620px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .big-statement {
+      margin-top: 80px;
+      font-size: clamp(29px, 4vw, 52px);
+      font-weight: 620;
+      line-height: 1.15;
+    }
+
+    .big-statement span {
+      color: var(--red);
+    }
+
+    .icon {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 48px;
+      place-items: center;
+      border: 1px solid rgba(255, 23, 56, 0.32);
+      border-radius: 10px;
+      color: var(--red);
+      background: var(--red-soft);
+    }
+
+    .card-label {
+      color: var(--red);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .about-grid h3 {
+      font-size: 21px;
+      line-height: 1.3;
+    }
+
+    .about-grid article > p:last-child,
+    .clean-list {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .clean-list {
+      padding: 0;
+      list-style: none;
+    }
+
+    .clean-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .timeline {
+      border-top: 1px solid var(--border);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 30px;
+      padding: 38px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .timeline-item > strong {
+      color: var(--red);
+      font-size: 45px;
+      font-weight: 520;
+    }
+
+    .timeline-item h3 {
+      margin: 5px 0 12px;
+      font-size: 23px;
+    }
+
+    .timeline-item p {
+      max-width: 750px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .stats-band {
+      position: relative;
+      z-index: 3;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 23, 56, 0.035);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat {
+      padding: 70px 35px;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat strong {
+      font-size: clamp(52px, 6vw, 80px);
+      font-weight: 550;
+    }
+
+    .stat strong span {
+      color: var(--red);
+    }
+
+    .stat p {
+      max-width: 230px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .problem {
+      padding: 28px 12px 36px;
+      border-top: 1px solid var(--border);
+    }
+
+    .problem-number {
+      color: var(--red);
+      font-size: 11px;
+    }
+
+    .problem-icon {
+      margin: 55px 0 25px;
+      color: var(--muted);
+      font-size: 30px;
+    }
+
+    .problem h3 {
+      font-size: 20px;
+    }
+
+    .problem p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .solution {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 50px;
+      margin-top: 70px;
+      padding: 42px;
+    }
+
+    .solution h3 {
+      margin: 17px 0;
+      font-size: 38px;
+    }
+
+    .solution-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .solution-list li {
+      display: flex;
+      gap: 13px;
+    }
+
+    .check {
+      flex: 0 0 22px;
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      background: var(--red);
+      font-size: 12px;
+    }
+
+    .solution-list strong,
+    .solution-list small {
+      display: block;
+    }
+
+    .solution-list strong {
+      font-size: 14px;
+    }
+
+    .solution-list small {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 13px;
+    }
+
+    .plan {
+      padding: 24px;
+    }
+
+    .plan.featured {
+      border-color: rgba(255, 23, 56, 0.55);
+      box-shadow:
+        inset 0 1px rgba(255, 255, 255, 0.08),
+        0 24px 80px rgba(255, 23, 56, 0.12);
+    }
+
+    .badge {
+      position: absolute;
+      top: 13px;
+      right: 13px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      color: white;
+      background: var(--red);
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .plan h3 {
+      margin: 12px 0 39px;
+      font-size: 24px;
+    }
+
+    .speed {
+      color: var(--muted);
+    }
+
+    .speed strong {
+      color: var(--text);
+      font-size: 43px;
+      font-weight: 540;
+    }
+
+    .price {
+      padding: 22px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .price > * {
+      display: block;
+    }
+
+    .price s {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .price strong {
+      margin-top: 5px;
+      color: var(--red);
+      font-size: 23px;
+    }
+
+    .price small {
+      color: var(--muted);
+    }
+
+    .plan-link {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 22px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .business-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .business {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 32px;
+    }
+
+    .business-icon {
+      margin-bottom: 36px;
+      color: var(--red);
+      font-size: 28px;
+    }
+
+    .business h3 {
+      margin: 10px 0;
+      font-size: 38px;
+    }
+
+    .business p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .business-price {
+      text-align: right;
+    }
+
+    .business-price strong,
+    .business-price span {
+      display: block;
+    }
+
+    .business-price strong {
+      color: var(--red);
+      font-size: 25px;
+    }
+
+    .business-price span {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .advantages {
+      border-top: 1px solid var(--border);
+    }
+
+    .advantage {
+      display: grid;
+      grid-template-columns: 100px 1fr 30px;
+      align-items: center;
+      padding: 28px 10px;
+      border-bottom: 1px solid var(--border);
+      transition:
+        padding 0.3s ease,
+        background 0.3s ease;
+    }
+
+    .advantage:hover {
+      padding-inline: 22px;
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .advantage span {
+      color: var(--red);
+      font-size: 11px;
+    }
+
+    .advantage h3 {
+      margin: 0;
+      font-size: clamp(21px, 3vw, 35px);
+      font-weight: 530;
+    }
+
+    .advantage b {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .team-card {
+      min-height: 365px;
+      padding: 22px;
+    }
+
+    .avatar {
+      width: 53px;
+      height: 53px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 50px;
+      border: 1px solid rgba(255, 23, 56, 0.5);
+      border-radius: 50%;
+      color: var(--red);
+      background: var(--red-soft);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+    }
+
+    .team-card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .role {
+      min-height: 48px;
+      color: var(--red);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .team-description {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.58;
+    }
+
+    .footer {
+      position: relative;
+      z-index: 3;
+      padding: 120px 0 35px;
+      border-top: 1px solid var(--border);
+      background: rgba(255, 23, 56, 0.035);
+    }
+
+    .footer h2 {
+      margin-bottom: 60px;
+    }
+
+    .footer-call {
+      display: grid;
+      grid-template-columns: 45px 1fr auto;
+      align-items: center;
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      color: var(--red);
+      font-size: clamp(30px, 5vw, 65px);
+      font-weight: 560;
+    }
+
+    .footer-call small {
+      padding: 11px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text);
+      font-size: 12px;
+    }
+
+    .footer-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      padding: 50px 0 80px;
+    }
+
+    .footer-meta div {
+      display: flex;
+      gap: 14px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .footer-meta b {
+      color: var(--red);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .reveal {
+      opacity: 0;
+      filter: blur(7px);
+      transform: translateY(25px);
+      transition:
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      filter: none;
+      transform: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 70px;
+      }
+
+      .network-visual {
+        height: 450px;
+      }
+
+      .about-grid,
+      .solution {
+        grid-template-columns: 1fr;
+      }
+
+      .about-main {
+        grid-row: auto;
+      }
+
+      .plans {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .team-card:last-child {
+        grid-column: span 2;
+      }
+
+      .fiber {
+        top: 395px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: calc(100% - 28px);
+      }
+
+      .nav {
+        height: 72px;
+      }
+
+      .nav-links > a:not(.nav-contact) {
+        display: none;
+      }
+
+      .nav-contact {
+        width: 39px;
+        height: 39px;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        padding: 0;
+        font-size: 0;
+      }
+
+      .nav-contact::after {
+        content: "↓";
+        font-size: 19px;
+      }
+
+      .hero {
+        min-height: 900px;
+        align-content: start;
+        padding-top: 100px;
+      }
+
+      .hero-description {
+        font-size: 17px;
+      }
+
+      .network-visual {
+        height: 370px;
+        margin-inline: -38px;
+        transform: scale(0.84);
+      }
+
+      .fiber {
+        top: 370px;
+      }
+
+      .ring-2 {
+        width: 365px;
+        height: 365px;
+      }
+
+      .section {
+        padding: 85px 0;
+      }
+
+      .section-heading {
+        margin-bottom: 38px;
+      }
+
+      .about-grid,
+      .plans,
+      .business-grid,
+      .problem-grid,
+      .stats,
+      .footer-meta,
+      .solution-list {
+        grid-template-columns: 1fr;
+      }
+
+      .big-statement {
+        margin-top: 50px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .stat {
+        padding: 43px 5px;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .solution {
+        gap: 26px;
+        padding: 25px;
+      }
+
+      .business {
+        display: block;
+      }
+
+      .business-price {
+        margin-top: 26px;
+        text-align: left;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-card:last-child {
+        grid-column: auto;
+      }
+
+      .footer-call {
+        grid-template-columns: 34px 1fr;
+      }
+
+      .footer-call small {
+        display: none;
+      }
+
+      .footer-bottom {
+        gap: 20px;
+        line-height: 1.5;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        filter: none;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav container">
+    <a href="#top" class="brand">
+      <span class="brand-mark">P</span>
+      <span>
+        <strong>PPT by Intimedia</strong>
+        <small>Kampung Internet</small>
+      </span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#paket">Paket</a>
+      <a href="#tentang">Tentang</a>
+      <a
+        class="nav-contact"
+        href="https://wa.me/628970667890"
+        target="_blank"
+        rel="noopener"
+      >
+        Hubungi Kami
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="fiber" aria-hidden="true">
+      <svg viewBox="0 0 1440 340" preserveAspectRatio="none">
+        <path
+          class="cable-shadow"
+          d="M-30 214 C170 30 342 330 555 161 S930 46 1133 191 S1360 299 1490 83"
+        />
+        <path
+          class="cable-body"
+          d="M-30 214 C170 30 342 330 555 161 S930 46 1133 191 S1360 299 1490 83"
+        />
+        <path
+          class="cable-light"
+          d="M-30 214 C170 30 342 330 555 161 S930 46 1133 191 S1360 299 1490 83"
+        />
+      </svg>
+    </div>
+
+    <section id="top" class="hero container">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Internet asli arek Suroboyo</p>
+
+        <h1>
+          Koneksi kampung.<br>
+          <span>Kecepatan kota.</span>
+        </h1>
+
+        <p class="hero-description">
+          Solusi koneksi cepat &amp; terjangkau untuk kampung —
+          Full Fiber Optik, Unlimited tanpa FUP.
+        </p>
+
+        <div class="actions">
+          <a
+            class="button button-primary"
+            href="https://wa.me/628970667890"
+            target="_blank"
+            rel="noopener"
+          >
+            ⚡ Pasang Sekarang
+          </a>
+
+          <a class="button button-glass" href="#paket">
+            Lihat Paket ↓
+          </a>
+        </div>
+      </div>
+
+      <div class="network-visual reveal">
+        <div class="signal-ring ring-1"></div>
+        <div class="signal-ring ring-2"></div>
+
+        <div class="network-center">
+          <div class="wifi">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <small>NETWORK STATUS</small>
+          <strong>ONLINE</strong>
+        </div>
+
+        <div class="network-stat stat-1">
+          <span>Uptime</span>
+          <strong>99,9%</strong>
+        </div>
+
+        <div class="network-stat stat-2">
+          <span>Coverage</span>
+          <strong>3.000+</strong>
+        </div>
+
+        <div class="network-stat stat-3">
+          <span>Backbone</span>
+          <strong>100% Fiber</strong>
+        </div>
+      </div>
+
+      <div class="hero-footer">
+        <a href="tel:+628970667890">CS 0897-0667-890</a>
+        <span>Surabaya · 2026</span>
+      </div>
+    </section>
+
+    <div class="ticker">
+      <div class="ticker-content">
+        FULL FIBER OPTIK <i></i>
+        UNLIMITED TANPA FUP <i></i>
+        FREE INSTALASI <i></i>
+        MONITORING 24/7 <i></i>
+        INTERNET ASLI AREK SUROBOYO <i></i>
+        FULL FIBER OPTIK <i></i>
+        UNLIMITED TANPA FUP <i></i>
+        FREE INSTALASI <i></i>
+        MONITORING 24/7
+      </div>
+    </div>
+
+    <section id="tentang" class="section container">
+      <div class="section-heading reveal">
+        <p class="eyebrow">01 · Tentang kami</p>
+        <h2>Infrastruktur lokal.<br>Dampak nyata.</h2>
+      </div>
+
+      <div class="about-grid">
+        <article class="glass about-main reveal">
+          <p>
+            PPT by Intimedia adalah penyedia layanan infrastruktur internet
+            berbasis masyarakat (RT RW Net) yang menyalurkan akses digital ke
+            pemukiman, UMKM, dan area lokal.
+          </p>
+
+          <div class="big-statement">
+            Fiber Optik stabil.<br>
+            <span>Tanpa batasan kuota.</span><br>
+            Harga ramah di kantong.
+          </div>
+        </article>
+
+        <article class="glass reveal">
+          <div class="icon">✦</div>
+          <p class="card-label">Visi Kami</p>
+          <h3>Akses digital merata sampai level perkampungan.</h3>
+          <p>
+            Menjadi pelopor pemerataan akses digital lokal yang terpercaya,
+            mendukung pertumbuhan ekonomi UMKM, serta menciptakan masyarakat
+            melek IT hingga level perkampungan.
+          </p>
+        </article>
+
+        <article class="glass reveal">
+          <div class="icon">✓</div>
+          <p class="card-label">Misi Kami</p>
+          <ul class="clean-list">
+            <li>Full Fiber Optik cepat dan terjangkau</li>
+            <li>Kualitas jaringan teruji tanpa FUP</li>
+            <li>Pemeliharaan dan pemantauan 24/7</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-heading reveal">
+        <p class="eyebrow">02 · Sejarah perusahaan</p>
+        <h2>Lima tahun bertumbuh bersama kampung.</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <strong>2021</strong>
+          <div>
+            <h3>Awalan &amp; Pondasi Perkampungan</h3>
+            <p>
+              Berdiri dari inisiatif lokal untuk mengatasi keterbatasan akses
+              internet di pemukiman padat. Dimulai dengan jaringan nirkabel
+              sederhana untuk beberapa area RT/RW.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <strong>2023</strong>
+          <div>
+            <h3>Modernisasi Infrastruktur</h3>
+            <p>
+              Seluruh backbone jaringan diubah dari nirkabel ke Full Fiber
+              Optik. Cakupan diperluas ke segmen UMKM, tim teknis dan
+              operasional diperkuat.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <strong>2026</strong>
+          <div>
+            <h3>Ekspansi &amp; Kelas Bisnis</h3>
+            <p>
+              Di usia 5 tahun, melayani ribuan pelanggan rumah, kos, hingga
+              sektor usaha. Perangkat enterprise Ruijie tersedia untuk paket
+              bisnis dan jaringan dipantau selama 24/7.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="stats-band">
+      <div class="stats container">
+        <div class="stat reveal">
+          <strong>3.000<span>+</span></strong>
+          <p>Rumah &amp; UMKM terhubung di wilayah Surabaya.</p>
+        </div>
+
+        <div class="stat reveal">
+          <strong>99,9<span>%</span></strong>
+          <p>Jaringan terpantau stabil atau uptime.</p>
+        </div>
+
+        <div class="stat reveal">
+          <strong>100<span>%</span></strong>
+          <p>Full Fiber Optik tanpa batasan kuota atau No FUP.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-heading reveal">
+        <p class="eyebrow">03 · Masalah &amp; solusi</p>
+        <h2>Internet seharusnya tidak bikin menunggu.</h2>
+      </div>
+
+      <div class="problem-grid">
+        <article class="problem reveal">
+          <span class="problem-number">01</span>
+          <div class="problem-icon">⌁</div>
+          <h3>Harga mahal &amp; kuota dibatasi</h3>
+          <p>
+            Paket internet rumahan mahal dan masih terkena Fair Usage Policy.
+          </p>
+        </article>
+
+        <article class="problem reveal">
+          <span class="problem-number">02</span>
+          <div class="problem-icon">☂</div>
+          <h3>Koneksi lemah saat cuaca buruk</h3>
+          <p>
+            Jaringan nirkabel drop ketika hujan deras atau angin kencang.
+          </p>
+        </article>
+
+        <article class="problem reveal">
+          <span class="problem-number">03</span>
+          <div class="problem-icon">◉</div>
+          <h3>Respon layanan teknis lambat</h3>
+          <p>
+            Gangguan baru ditangani berhari-hari hingga aktivitas pelanggan
+            terhenti.
+          </p>
+        </article>
+      </div>
+
+      <article class="solution glass reveal">
+        <div>
+          <p class="card-label">Solusi PPT Intimedia</p>
+          <h3>Satu jaringan.<br>Empat kepastian.</h3>
+        </div>
+
+        <ul class="solution-list">
+          <li>
+            <span class="check">✓</span>
+            <span>
+              <strong>Unlimited murni, harga UMKM</strong>
+              <small>
+                Paket tanpa FUP mulai Rp100.000/bulan di 3 bulan pertama.
+              </small>
+            </span>
+          </li>
+
+          <li>
+            <span class="check">✓</span>
+            <span>
+              <strong>Full Fiber Optik</strong>
+              <small>
+                Infrastruktur kabel optik stabil di segala kondisi cuaca.
+              </small>
+            </span>
+          </li>
+
+          <li>
+            <span class="check">✓</span>
+            <span>
+              <strong>Dipantau 24/7</strong>
+              <small>
+                Network monitoring nonstop dengan tim teknis lokal responsif.
+              </small>
+            </span>
+          </li>
+
+          <li>
+            <span class="check">✓</span>
+            <span>
+              <strong>Free instalasi</strong>
+              <small>
+                Pemasangan gratis dan konfigurasi perangkat oleh teknisi kami.
+              </small>
+            </span>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="paket" class="section container">
+      <div class="section-heading reveal">
+        <p class="eyebrow">04 · Ringkasan layanan</p>
+        <h2>Pilih kecepatanmu.</h2>
+        <p class="section-intro">
+          Promo 3 bulan pertama · bulan ke-4 kembali normal.
+        </p>
+      </div>
+
+      <div class="plans">
+        <article class="plan glass reveal">
+          <p class="card-label">Paket Rumah</p>
+          <h3>Hemat 10</h3>
+          <p class="speed"><strong>10</strong> Mbps</p>
+          <div class="price">
+            <s>Rp110.000/bulan</s>
+            <strong>Rp100.000</strong>
+            <small>/bulan</small>
+          </div>
+          <a
+            class="plan-link"
+            href="https://wa.me/628970667890?text=Saya%20tertarik%20paket%20Hemat%2010"
+            target="_blank"
+            rel="noopener"
+          >
+            Pilih paket <span>→</span>
+          </a>
+        </article>
+
+        <article class="plan glass reveal">
+          <p class="card-label">Paket Rumah</p>
+          <h3>Family 20</h3>
+          <p class="speed"><strong>20</strong> Mbps</p>
+          <div class="price">
+            <s>Rp125.000/bulan</s>
+            <strong>Rp100.000</strong>
+            <small>/bulan</small>
+          </div>
+          <a
+            class="plan-link"
+            href="https://wa.me/628970667890?text=Saya%20tertarik%20paket%20Family%2020"
+            target="_blank"
+            rel="noopener"
+          >
+            Pilih paket <span>→</span>
+          </a>
+        </article>
+
+        <article class="plan glass reveal">
+          <p class="card-label">Paket Rumah</p>
+          <h3>Smart 30</h3>
+          <p class="speed"><strong>30</strong> Mbps</p>
+          <div class="price">
+            <s>Rp150.000/bulan</s>
+            <strong>Rp100.000</strong>
+            <small>/bulan</small>
+          </div>
+          <a
+            class="plan-link"
+            href="https://wa.me/628970667890?text=Saya%20tertarik%20paket%20Smart%2030"
+            target="_blank"
+            rel="noopener"
+          >
+            Pilih paket <span>→</span>
+          </a>
+        </article>
+
+        <article class="plan glass featured reveal">
+          <span class="badge">BEST SELLER</span>
+          <p class="card-label">Paket Rumah</p>
+          <h3>Max 50</h3>
+          <p class="speed"><strong>50</strong> Mbps</p>
+          <div class="price">
+            <s>Rp175.000/bulan</s>
+            <strong>Rp100.000</strong>
+            <small>/bulan</small>
+          </div>
+          <a
+            class="plan-link"
+            href="https://wa.me/628970667890?text=Saya%20tertarik%20paket%20Max%2050"
+            target="_blank"
+            rel="noopener"
+          >
+            Pilih paket <span>→</span>
+          </a>
+        </article>
+      </div>
+
+      <div class="business-grid">
+        <article class="business glass reveal">
+          <div>
+            <div class="business-icon">▣</div>
+            <p class="card-label">Bisnis 100</p>
+            <h3>100 Mbps</h3>
+            <p>
+              + 1 perangkat Ruijie 1200<br>
+              Free 1 bulan awal
+            </p>
+          </div>
+          <div class="business-price">
+            <strong>Rp220.000</strong>
+            <span>per bulan</span>
+          </div>
+        </article>
+
+        <article class="business glass reveal">
+          <div>
+            <div class="business-icon">⌁</div>
+            <p class="card-label">Sultan 200</p>
+            <h3>200 Mbps</h3>
+            <p>
+              Kos, kantor, UMKM, dan ritel<br>
+              + 1 perangkat Ruijie 1300 · Free 1 bulan awal
+            </p>
+          </div>
+          <div class="business-price">
+            <strong>Rp300.000</strong>
+            <span>per bulan</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-heading reveal">
+        <p class="eyebrow">05 · Keunggulan</p>
+        <h2>Kenapa memilih PPT by Intimedia.</h2>
+      </div>
+
+      <div class="advantages">
+        <div class="advantage reveal">
+          <span>01</span>
+          <h3>Full Fiber Optik</h3>
+          <b>✓</b>
+        </div>
+        <div class="advantage reveal">
+          <span>02</span>
+          <h3>Include PPN</h3>
+          <b>✓</b>
+        </div>
+        <div class="advantage reveal">
+          <span>03</span>
+          <h3>Jaringan dipantau 24/7</h3>
+          <b>✓</b>
+        </div>
+        <div class="advantage reveal">
+          <span>04</span>
+          <h3>Free instalasi</h3>
+          <b>✓</b>
+        </div>
+        <div class="advantage reveal">
+          <span>05</span>
+          <h3>No FUP (Unlimited)</h3>
+          <b>✓</b>
+        </div>
+      </div>
+    </section>
+
+    <section id="tim" class="section container">
+      <div class="section-heading reveal">
+        <p class="eyebrow">06 · Tim kami</p>
+        <h2>Para inovator di balik koneksimu.</h2>
+        <p class="section-intro">
+          Aset terbesar kami adalah tim teknis dan pelayanan yang berdedikasi
+          menjaga koneksi kampung tetap hidup setiap hari.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <article class="team-card glass reveal">
+          <div class="avatar">EF</div>
+          <h3>Eden Fahrur</h3>
+          <p class="role">Founder &amp; CEO</p>
+          <p class="team-description">
+            Memimpin arah strategis perusahaan, kemitraan layanan, dan
+            pengembangan ekspansi bisnis.
+          </p>
+        </article>
+
+        <article class="team-card glass reveal">
+          <div class="avatar">ZV</div>
+          <h3>Zan Verstappen</h3>
+          <p class="role">Chief Technology Officer</p>
+          <p class="team-description">
+            Bertanggung jawab penuh atas arsitektur jaringan, infrastruktur
+            server, dan stabilitas jalur Fiber Optik.
+          </p>
+        </article>
+
+        <article class="team-card glass reveal">
+          <div class="avatar">TS</div>
+          <h3>Tirtha Saputra</h3>
+          <p class="role">Head of Network &amp; Field Operations</p>
+          <p class="team-description">
+            Mengawasi instalasi kabel, pemeliharaan perangkat jaringan di
+            lapangan, dan penyelesaian masalah teknis secara cepat.
+          </p>
+        </article>
+
+        <article class="team-card glass reveal">
+          <div class="avatar">AB</div>
+          <h3>Alexander Besur</h3>
+          <p class="role">Network Security &amp; Infrastructure Specialist</p>
+          <p class="team-description">
+            Mengelola konfigurasi router, sistem proteksi jaringan, dan
+            pemantauan trafik bandwidth 24/7.
+          </p>
+        </article>
+
+        <article class="team-card glass reveal">
+          <div class="avatar">JB</div>
+          <h3>Jefri Beno</h3>
+          <p class="role">Customer Success &amp; Operations Manager</p>
+          <p class="team-description">
+            Mengelola hubungan dengan pelanggan, koordinasi layanan bantuan
+            teknis, serta administrasi sistem penagihan.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <footer id="kontak" class="footer">
+      <div class="container reveal">
+        <p class="eyebrow">Kontak kami</p>
+        <h2>Ayo sambungkan<br>kampungmu.</h2>
+
+        <a
+          class="footer-call"
+          href="https://wa.me/628970667890"
+          target="_blank"
+          rel="noopener"
+        >
+          <span>☎</span>
+          <span>0897-0667-890</span>
+          <small>Mulai obrolan →</small>
+        </a>
+
+        <div class="footer-meta">
+          <div>
+            <b>⌖</b>
+            <span>
+              Jl. Wonorejo 4/108<br>
+              Surabaya
+            </span>
+          </div>
+
+          <div>
+            <b>⌂</b>
+            <span>
+              Free instalasi<br>
+              &amp; pantauan 24/7
+            </span>
+          </div>
+
+          <div>
+            <b>◎</b>
+            <span>
+              Rumah, kos,<br>
+              UMKM &amp; ritel
+            </span>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>PPT by Intimedia ©️ 2026</span>
+          <span>Internet Asli Arek Suroboyo</span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const elements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -40px 0px"
+      }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (!reduceMotion) {
+      window.addEventListener(
+        "pointermove",
+        (event) => {
+          const x = (event.clientX / window.innerWidth - 0.5) * 8;
+          const y = (event.clientY / window.innerHeight - 0.5) * 8;
+          const visual = document.querySelector(".network-visual");
+
+          if (visual && window.innerWidth > 900) {
+            visual.style.transform =
+              `translate3d(${x}px, ${y}px, 0)`;
+          }
+        },
+        { passive: true }
+      );
+    }
+  </script>
+</body>
+  </html>
